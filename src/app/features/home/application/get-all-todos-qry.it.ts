@@ -13,7 +13,7 @@ describe('GetAllTodosQry', () => {
       },
     ])
 
-    const todos = await getAllTodosQry.execute()
+    const todos = await getAllTodosQry.internalExecute()
 
     expect(todos).toEqual([
       {

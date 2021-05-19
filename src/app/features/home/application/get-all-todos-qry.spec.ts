@@ -8,7 +8,7 @@ describe('GetAllTodosQry', () => {
     const { getAllTodosQry, todoRepository } = setup()
     when(todoRepository.findAll()).thenResolve([TodoMother.completedTodo()])
 
-    const todos = await getAllTodosQry.execute()
+    const todos = await getAllTodosQry.internalExecute()
 
     expect(todos).toEqual([TodoMother.completedTodo()])
   })

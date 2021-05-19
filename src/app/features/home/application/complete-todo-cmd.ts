@@ -7,10 +7,12 @@ import { Command } from '../../../core/types/command'
 @Injectable({
   providedIn: 'root',
 })
-export class CompleteTodoCmd implements Command<Id> {
-  constructor(@Inject(TODO_REPOSITORY_TYPE) private readonly todoRepository: TodoRepository) {}
+export class CompleteTodoCmd extends Command<Id> {
+  constructor(@Inject(TODO_REPOSITORY_TYPE) private readonly todoRepository: TodoRepository) {
+    super()
+  }
 
-  async execute(id: Id): Promise<void> {
+  async internalExecute(id: Id): Promise<void> {
     this.todoRepository.completeTodo(id)
   }
 }

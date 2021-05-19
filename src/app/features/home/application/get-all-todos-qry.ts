@@ -7,10 +7,12 @@ import { Query } from '../../../core/types/query'
 @Injectable({
   providedIn: 'root',
 })
-export class GetAllTodosQry implements Query<Todo[]> {
-  constructor(@Inject(TODO_REPOSITORY_TYPE) private readonly todoRepository: TodoRepository) {}
+export class GetAllTodosQry extends Query<Todo[]> {
+  constructor(@Inject(TODO_REPOSITORY_TYPE) private readonly todoRepository: TodoRepository) {
+    super()
+  }
 
-  execute(): Promise<Todo[]> {
+  internalExecute(): Promise<Todo[]> {
     return this.todoRepository.findAll()
   }
 }
