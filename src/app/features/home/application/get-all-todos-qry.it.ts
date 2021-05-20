@@ -1,6 +1,5 @@
 import { GetAllTodosQry } from './get-all-todos-qry'
-import { Todo } from '../domain/todo'
-import { anything, instance, mock, when } from "ts-mockito";
+import { instance, mock, when } from 'ts-mockito'
 import { TodoRepository } from '../domain/todo-repository'
 
 describe('GetAllTodosQry', () => {
@@ -9,7 +8,8 @@ describe('GetAllTodosQry', () => {
     when(todoRepository.findAll()).thenResolve([
       {
         id: 1,
-        title: 'foo',completed: true
+        title: 'foo',
+        completed: true,
       },
     ])
 
@@ -19,7 +19,7 @@ describe('GetAllTodosQry', () => {
       {
         id: 1,
         title: 'foo',
-        completed: true
+        completed: true,
       },
     ])
   })

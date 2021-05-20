@@ -13,6 +13,6 @@ export class CompleteTodoCmd extends Command<Id> {
   }
 
   async internalExecute(id: Id): Promise<void> {
-    this.todoRepository.completeTodo(id)
+    await this.todoRepository.completeTodo(id)
   }
 }
